@@ -1,126 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlamBrat Co. - Lentes, Pestañas y Accesorios</title>
-    <style>
-        /* Estilos CSS anteriores se mantienen igual */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fafafa;
-            color: #333;
-        }
-        header {
-            background-color: #ffb6c1; /* Rosa claro */
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        /* La sección de estilos para .category-nav ha sido eliminada */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        .category-title {
-            text-align: center;
-            color: #ff69b4; /* Rosa fuerte */
-            margin-top: 40px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            text-align: center;
-            padding-bottom: 15px;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        .product-card h3 {
-            margin: 15px 0 5px;
-            font-size: 1.2em;
-            color: #555;
-        }
-        .product-card p {
-            margin: 0 0 15px;
-            font-weight: bold;
-            color: #ff69b4;
-            font-size: 1.1em;
-        }
-        .btn-whastapp {
-            background-color: #25d366;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        .btn-whastapp:hover {
-            background-color: #128c7e;
-        }
-        /* El estilo para footer ha sido eliminado */
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlamBrat Co. 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #e8389a;
+    --pink-light: #f472c0;
+    --purple: #7c3fc4;
+    --purple-deep: #4e1a8a;
+    --blue: #3e8fe8;
+    --blue-bright: #5bb8ff;
+    --yellow: #ffd84d;
+    --white: #fff;
+    --bg-grad: linear-gradient(160deg, #f9a8e8 0%, #d46ff0 35%, #7c3fc4 70%, #4e1a8a 100%);
+    --card-bg: rgba(255,255,255,0.15);
+    --card-border: rgba(255,255,255,0.35);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg-grad);
+    background-attachment: fixed;
+    color: var(--white);
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
+  header {
+    padding: 60px 20px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  }
+  .logo {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    text-shadow: 4px 4px 0px var(--purple-deep), 8px 8px 20px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .container { width: 95%; max-width: 1200px; margin: 0 auto; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: 0.3s;
+    position: relative;
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .card-img { width: 100%; height: 200px; object-fit: cover; }
+  .card-body { padding: 20px; }
+  .card-tag {
+    background: var(--yellow);
+    color: var(--purple-deep);
+    font-weight: 900;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  h3 { font-family: 'Fredoka One', cursive; font-size: 1.4rem; margin-bottom: 8px; }
+  .price { font-size: 1.5rem; font-weight: 900; color: var(--yellow); }
+  .wa-btn {
+    display: block;
+    background: #25D366;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 800;
+    margin-top: 15px;
+    transition: 0.3s;
+  }
+  .wa-btn:hover { filter: brightness(1.1); transform: scale(1.05); }
+</style>
 </head>
 <body>
 
 <header>
-    <h1>GlamBrat Co.</h1>
+  <span class="logo">GlamBrat Co.</span>
+  <p style="font-weight:700; opacity:0.9;">¡Realza tu mirada con el mejor estilo!</p>
 </header>
 
 <div class="container">
-    <div id="lentes-section">
-        <h2 class="category-title">Lentes de Contacto</h2>
-        <div class="product-grid" id="lentes-grid">
-            </div>
-    </div>
-
-    <div id="pestanas-section">
-        <h2 class="category-title">Pestañas</h2>
-        <div class="product-grid" id="pestanas-grid">
-            </div>
-    </div>
-
-    <div id="accesorios-section">
-        <h2 class="category-title">Accesorios</h2>
-        <div class="product-grid" id="accesorios-grid">
-            </div>
-    </div>
+  <div class="grid" id="productGrid"></div>
 </div>
 
 <script>
-    // El script de JavaScript se mantiene igual para cargar los productos
-    const PRODUCTS = {
-        lentes: [
-            { id: 1, name: "Lentes Honey", price: "35.000", img: "lentes-honey.jpg" },
-            { id: 2, name: "Lentes Aqua", price: "35.000", img: "lentes-aqua.jpg" },
-            { id: 3, name: "Lentes Gray", price: "35.000", img: "lentes-gray.jpg" },
-            { id: 4, name: "Lentes Green", price: "35.000", img: "lentes-green.jpg" }
-        ],
-        pestanas: [
-            { id: 5, name: "Pestañas 3D-01", price: "18.000", img: "pestanas-3d-01.jpg" },
-            { id: 6, name: "Pestañas FX-05", price: "18.000", img: "pestanas-
+  const products = [
+    { name: "Lentes Honey", cat: "lentes", price: "$35.000", img: "lentes-honey.jpg", desc: "Tono miel natural y radiante." },
+    { name: "Lentes Aqua", cat: "lentes", price: "$35.000", img: "lentes-aqua.jpg", desc: "Azul profundo con acabado cristal." },
+    { name: "Pestañas 3D-01", cat: "pestanas", price: "$18.000", img: "pestanas-3d-01.jpg", desc: "Volumen extra y efecto dramático." },
+    { name: "Estuche Glam", cat: "accesorios", price: "$25.000", img: "estuche-glam.jpg", desc: "Diseño exclusivo para tus lentes." }
+    // Puedes seguir agregando el resto de la lista que te pasé antes aquí
+  ];
+
+  const labels = { lentes: 'Lentes', pestanas: 'Pestañas', accesorios: 'Accesorios' };
+  const grid = document.getElementById('productGrid');
+
+  products.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = (i * 0.1) + 's';
+    card.innerHTML = `
+      <img class="card-img" src="${p.img}" alt="${p.name}">
+      <div class="card-body">
+        <div class="card-tag">
