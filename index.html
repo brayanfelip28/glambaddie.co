@@ -213,6 +213,7 @@
     }
     updateCartUI();
     saveCartToLocalStorage();
+    renderProducts(); // Refresca las tarjetas para actualizar los contadores
   }
 
   function updateQuantity(productId, change) {
@@ -227,7 +228,7 @@
     }
     updateCartUI();
     saveCartToLocalStorage();
-    renderProducts(); // Para actualizar los botones de cantidad en las tarjetas
+    renderProducts();
   }
 
   function removeFromCart(productId) {
@@ -291,4 +292,151 @@
     const savedCart = localStorage.getItem('glambrat_cart');
     if (savedCart) {
       cart = JSON.parse(savedCart);
-      updateCartUI
+      updateCartUI();
+    }
+  }
+
+  // ----- RENDERIZADO DE PRODUCTOS -----
+  function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    const sectionTitle = document.getElementById('sectionTitle');
+    const sectionCount = document.getElementById('sectionCount');
+    
+    let titulo = "";
+    switch(currentCategory) {
+      case "lentes": titulo = "Lentes de Contacto"; break;
+      case "pestanas": titulo = "Pestañas Postizas"; break;
+      case "accesorios": titulo = "Accesorios"; break;
+      default: titulo = "Productos";
+    }
+    sectionTitle.innerText = titulo + " ✨";
+    
+    const filteredProducts = PRODUCTOS.filter(p => p.categoria === currentCategory);
+    sectionCount.innerText = filteredProducts.length + " productos";
+    
+    if (filteredProducts.length === 0) {
+      grid.innerHTML = `<div class="welcome"><div class="welcome-emoji">😢</div><h2>No hay productos</h2><p>Esta categoría está vacía por ahora.</p></div>`;
+      return;
+    }
+    
+    let html = '';
+    filteredProducts.forEach(product => {
+      const quantity = getProductQuantity(product.id);
+      html += `
+        <div class="card" data-id="${product.id}">
+          <img class="card-img" src="${product.img}" alt="${product.nombre}" loading="lazy">
+          <div class="card-body">
+            <div class="card-tag">${product.categoria === 'lentes' ? 'LENTES' : (product.categoria === 'pestanas' ? 'PESTAÑAS' : 'ACCESORIO')}</div>
+            <h3>${product.nombre}</h3>
+            <p>${product.descripcion.substring(0, 60)}...</p>
+            <div class="price">$${product.precio.toLocaleString()} COP</div>
+            <div class="qty-selector">
+              <button class="qty-btn" onclick="event.stopPropagation(); updateQuantity(${product.id}, -1)">-</button>
+              <span class="qty-display">${quantity}</span>
+              <button class="qty-btn" onclick="event.stopPropagation(); updateQuantity(${product.id}, 1)">+</button>
+            </div>
+            <button class="wa-btn" onclick="event.stopPropagation(); addToCart(${product.id})">&#128722; Agregar al carrito</button>
+          </div>
+        </div>
+      `;
+    });
+    grid.innerHTML = html;
+    
+    // Agregar event listeners para abrir el modal al hacer clic en la tarjeta
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const id = parseInt(card.dataset.id);
+        const product = PRODUCTOS.find(p => p.id === id);
+        if (product) openModal(product);
+      });
+    });
+  }
+
+  // ----- MODAL DE PRODUCTO -----
+  function openModal(product) {
+    const modalOverlay = document.getElementById('modalOverlay');
+    document.getElementById('modalImg').src = product.img;
+    document.getElementById('modalTag').innerText = product.categoria === 'lentes' ? 'LENTES DE CONTACTO' : (product.categoria === 'pestanas' ? 'PESTAÑAS POSTIZAS' : 'ACCESORIO');
+    document.getElementById('modalTitle').innerText = product.nombre;
+    document.getElementById('modalDesc').innerText = product.descripcion;
+    
+    const specsContainer = document.getElementById('modalSpecs');
+    specsContainer.innerHTML = '';
+    product.especificaciones.forEach(spec => {
+      const pill = document.createElement('span');
+      pill.className = 'spec-pill';
+      pill.innerText = spec;
+      specsContainer.appendChild(pill);
+    });
+    
+    document.getElementById('modalPrice').innerHTML = `$${product.precio.toLocaleString()} COP`;
+    const waBtn = document.getElementById('modalWaBtn');
+    const mensaje = `Hola! Me interesa el producto: ${product.nombre} ($${product.precio.toLocaleString()} COP)`;
+    waBtn.href = `https://wa.me/573001234567?text=${encodeURIComponent(mensaje)}`;
+    
+    modalOverlay.classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+  }
+
+  // ----- MANEJO DEL MENÚ LATERAL Y CATEGORÍAS -----
+  function openSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  }
+
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+  }
+
+  function openCartModal() {
+    document.getElementById('cartModalOverlay').classList.add('active');
+  }
+
+  function closeCartModal() {
+    document.getElementById('cartModalOverlay').classList.remove('active');
+  }
+
+  // ----- INICIALIZACIÓN -----
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCartFromLocalStorage();
+    renderProducts();
+    
+    // Event listeners del menú
+    document.getElementById('menuBtn').addEventListener('click', openSidebar);
+    document.getElementById('closeBtn').addEventListener('click', closeSidebar);
+    document.getElementById('overlay').addEventListener('click', closeSidebar);
+    
+    // Event listeners de categorías
+    document.querySelectorAll('[data-tab]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentCategory = link.dataset.tab;
+        renderProducts();
+        closeSidebar();
+      });
+    });
+    
+    // Event listeners de modales
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalOverlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    });
+    
+    document.getElementById('cartBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      closeSidebar();
+      openCartModal();
+    });
+    
+    document.getElementById('closeCartBtn').addEventListener('click', closeCartModal);
+    document.getElementById('cartModalOverlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('cartModalOverlay')) closeCartModal();
+    });
+  });
+</script>
+</body>
+</html>
