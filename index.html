@@ -269,7 +269,7 @@
     <div class="promo-card">
       <div class="promo-emoji">&#128667;</div>
       <div class="promo-title">Envío gratis</div>
-      <div class="promo-sub">En compras +$50.000</div>
+      <div class="promo-sub">En compras +$100.000</div>
       <span class="promo-badge">&#9989; Activo</span>
     </div>
     <div class="promo-card">
@@ -501,7 +501,7 @@
     }
  
     const msg = cart.map(i => { const p = PRODUCTOS.find(x => x.id === i.id); return p ? `${p.nombre} x${i.cantidad} ($${(p.precio*i.cantidad).toLocaleString()} COP)` : ''; }).filter(Boolean).join('%0A');
-    document.getElementById('waCheckoutBtn').href = `https://wa.me/573001234567?text=Hola!%20Quiero%20hacer%20un%20pedido:%0A${msg}%0ATotal:%20$${total.toLocaleString()}%20COP`;
+    document.getElementById('waCheckoutBtn').href = `https://wa.me/573189653717?text=Hola!%20Quiero%20hacer%20un%20pedido:%0A${msg}%0ATotal:%20$${total.toLocaleString()}%20COP`;
   }
  
   // ── RENDER PRODUCTOS ──
@@ -542,7 +542,7 @@
     document.getElementById('modalSpecs').innerHTML = p.especificaciones.map(s => `<span class="spec-pill">${s}</span>`).join('');
     document.getElementById('modalPrice').innerHTML = '$' + p.precio.toLocaleString() + ' COP';
     const msg = `Hola! Me interesa el producto: ${p.nombre} ($${p.precio.toLocaleString()} COP)`;
-    document.getElementById('modalWaBtn').href = `https://wa.me/573001234567?text=${encodeURIComponent(msg)}`;
+    document.getElementById('modalWaBtn').href = `https://wa.me/573189653717?text=${encodeURIComponent(msg)}`;
     document.getElementById('modalOverlay').classList.add('active');
   }
  
