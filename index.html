@@ -116,7 +116,6 @@
   </div>
   <ul class="sidebar-nav">
     <li><a href="#" data-tab="lentes"><span class="nav-icon">&#128065;</span> Lentes de Contacto</a></li>
-    <li><a href="#" data-tab="pestanas"><span class="nav-icon">&#10024;</span> Pestanas Postizas</a></li>
     <li><a href="#" data-tab="accesorios"><span class="nav-icon">&#128142;</span> Accesorios</a></li>
     <div class="sidebar-divider"></div>
     <li><a href="#" id="cartBtn"><span class="nav-icon">&#128722;</span> Mi Carrito</a></li>
@@ -130,7 +129,7 @@
     <span class="h-brat">Brat</span>
   </div>
   <div class="sparkles-row">&#10022; &#128132; &#10022; &#128539; &#10022; &#128139; &#10022;</div>
-  <p class="hero-sub">Lentes de contacto, pestanas y accesorios beauty &#10024; Envios a toda Colombia &#127464;&#127476;</p>
+  <p class="hero-sub">Lentes de contacto, pestañas y accesorios beauty &#10024; Envios a toda Colombia &#127464;&#127476;</p>
 </section>
 
 <div class="section-head">
@@ -178,9 +177,8 @@
 <footer>Hecho con amor por <strong>GlamBrat Co.</strong> &middot; Bogota, Colombia &middot; 2025 &#10022;</footer>
 
 <script>
-  // ----- BASE DE DATOS DE PRODUCTOS ACTUALIZADA -----
+  // ----- BASE DE DATOS DE PRODUCTOS ACTUALIZADA (SIN PESTAÑAS) -----
   // Lentes: precio 35.000 COP c/u
-  // Pestañas: se venden por paquetes de pares (5 pares, 7 pares, 10 pares)
   // Accesorios: precios originales
 
   const PRODUCTOS = [
@@ -193,15 +191,10 @@
     { id: 6, nombre: "Margaret Gray", categoria: "lentes", precio: 35000, descripcion: "Gris humo, sutil y sofisticado para el día a día.", especificaciones: ["Diámetro: 14.2mm", "Hidratación: 52%", "Duración: 1 año"], img: "https://i.imgur.com/7yHpG4d.jpg" },
     { id: 7, nombre: "Choco Gray", categoria: "lentes", precio: 35000, descripcion: "Mezcla de gris y chocolate, un color único y versátil.", especificaciones: ["Diámetro: 14.5mm", "Hidratación: 58%", "Duración: 1 año"], img: "https://i.imgur.com/WkQjN3L.jpg" },
     
-    // Pestañas Postizas por pares (bundles)
-    { id: 8, nombre: "5 Pares de Pestañas", categoria: "pestanas", precio: 25000, descripcion: "Pack de 5 pares de pestañas postizas de alta calidad. Perfecto para uso diario.", especificaciones: ["5 pares", "Estilo variado", "Reutilizables"], img: "https://i.imgur.com/RcS8L9M.jpg" },
-    { id: 9, nombre: "7 Pares de Pestañas", categoria: "pestanas", precio: 30000, descripcion: "Pack de 7 pares de pestañas postizas. Mayor cantidad, mejor precio.", especificaciones: ["7 pares", "Estilo variado", "Reutilizables"], img: "https://i.imgur.com/JF6p7Kq.jpg" },
-    { id: 10, nombre: "10 Pares de Pestañas", categoria: "pestanas", precio: 35000, descripcion: "Pack de 10 pares de pestañas postizas. Ideal para revender o uso prolongado.", especificaciones: ["10 pares", "Estilo variado", "Reutilizables"], img: "https://i.imgur.com/Hg5L9fT.jpg" },
-    
     // Accesorios (sin cambios)
-    { id: 11, nombre: "Aplicador de Pestañas", categoria: "accesorios", precio: 8000, descripcion: "Aplicador de metal para una colocación precisa y fácil.", especificaciones: ["Material: Acero Inoxidable", "Antideslizante"], img: "https://i.imgur.com/6dF5gH8.jpg" },
-    { id: 12, nombre: "Pegamento para Pestañas", categoria: "accesorios", precio: 12000, descripcion: "Pegamento de larga duración, seguro para tus ojos.", especificaciones: ["Secado rápido", "Hipoalergénico", "Invisible"], img: "https://i.imgur.com/4VcH9kD.jpg" },
-    { id: 13, nombre: "Estuche para Lentes", categoria: "accesorios", precio: 15000, descripcion: "Estuche rígido para mantener tus lentes de contacto seguros.", especificaciones: ["Colores: Rosa, Morado, Azul", "Incluye líquido de muestra"], img: "https://i.imgur.com/1rE6w2L.jpg" }
+    { id: 8, nombre: "Aplicador de Pestañas", categoria: "accesorios", precio: 8000, descripcion: "Aplicador de metal para una colocación precisa y fácil.", especificaciones: ["Material: Acero Inoxidable", "Antideslizante"], img: "https://i.imgur.com/6dF5gH8.jpg" },
+    { id: 9, nombre: "Pegamento para Pestañas", categoria: "accesorios", precio: 12000, descripcion: "Pegamento de larga duración, seguro para tus ojos.", especificaciones: ["Secado rápido", "Hipoalergénico", "Invisible"], img: "https://i.imgur.com/4VcH9kD.jpg" },
+    { id: 10, nombre: "Estuche para Lentes", categoria: "accesorios", precio: 15000, descripcion: "Estuche rígido para mantener tus lentes de contacto seguros.", especificaciones: ["Colores: Rosa, Morado, Azul", "Incluye líquido de muestra"], img: "https://i.imgur.com/1rE6w2L.jpg" }
   ];
 
   // ----- FUNCIÓN PARA NORMALIZAR IMÁGENES (base64 o URL) -----
@@ -324,7 +317,6 @@
     let titulo = "";
     switch(currentCategory) {
       case "lentes": titulo = "Lentes de Contacto"; break;
-      case "pestanas": titulo = "Pestañas Postizas (por pares)"; break;
       case "accesorios": titulo = "Accesorios"; break;
       default: titulo = "Productos";
     }
@@ -346,7 +338,7 @@
         <div class="card" data-id="${product.id}">
           <img class="card-img" src="${imgSrc}" alt="${product.nombre}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x300?text=Error+de+imagen';">
           <div class="card-body">
-            <div class="card-tag">${product.categoria === 'lentes' ? 'LENTES' : (product.categoria === 'pestanas' ? 'PESTAÑAS' : 'ACCESORIO')}</div>
+            <div class="card-tag">${product.categoria === 'lentes' ? 'LENTES' : 'ACCESORIO'}</div>
             <h3>${product.nombre}</h3>
             <p>${product.descripcion.substring(0, 60)}...</p>
             <div class="price">$${product.precio.toLocaleString()} COP</div>
@@ -379,7 +371,7 @@
     modalImg.src = normalizedSrc;
     modalImg.onerror = function() { this.onerror=null; this.src='https://placehold.co/400x300?text=Error+de+imagen'; };
     
-    document.getElementById('modalTag').innerText = product.categoria === 'lentes' ? 'LENTES DE CONTACTO' : (product.categoria === 'pestanas' ? 'PESTAÑAS POSTIZAS' : 'ACCESORIO');
+    document.getElementById('modalTag').innerText = product.categoria === 'lentes' ? 'LENTES DE CONTACTO' : 'ACCESORIO';
     document.getElementById('modalTitle').innerText = product.nombre;
     document.getElementById('modalDesc').innerText = product.descripcion;
     
