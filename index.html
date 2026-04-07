@@ -478,6 +478,8 @@
     updateCartUI(); renderProducts(); saveCart();
   }
  
+  function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCartUI(); renderProducts(); saveCart(); }
+  function clearCart() { cart = []; updateCartUI(); renderProducts(); saveCart(); }
   function saveCart() { localStorage.setItem('glambrat_cart', JSON.stringify(cart)); }
   function loadCart() {
     const s = localStorage.getItem('glambrat_cart');
@@ -499,10 +501,12 @@
         const p = PRODUCTOS.find(x => x.id === i.id);
         if (!p) return '';
         return `<div class="cart-item-row">
+          <button onclick="removeFromCart(${p.id})" style="background:rgba(232,56,154,.25);border:1.5px solid rgba(232,56,154,.5);color:#fff;width:22px;height:22px;border-radius:6px;cursor:pointer;font-size:.75rem;flex-shrink:0;">&#10005;</button>
           <span class="cart-item-name">${p.nombre} <span style="color:rgba(255,255,255,.55)">x${i.cantidad}</span></span>
           <span class="cart-item-subtotal">$${(p.precio * i.cantidad).toLocaleString()}</span>
         </div>`;
       }).join('');
+      itemsEl.innerHTML += `<button onclick="clearCart()" style="margin-top:10px;width:100%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:7px;border-radius:10px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.75rem;cursor:pointer;">&#128465; Vaciar carrito</button>`;
     }
  
     const msg = cart.map(i => { const p = PRODUCTOS.find(x => x.id === i.id); return p ? `${p.nombre} x${i.cantidad} ($${(p.precio*i.cantidad).toLocaleString()} COP)` : ''; }).filter(Boolean).join('%0A');
@@ -592,3 +596,4 @@
 </script>
 </body>
 </html>
+ 
