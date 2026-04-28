@@ -20,20 +20,17 @@
     .logo .brat{color:var(--blue-bright);font-size:1.4rem;}
     .logo .co{color:var(--yellow);font-size:.8rem;letter-spacing:3px;}
  
-    /* Search bar */
     .header-search{flex:1;max-width:380px;position:relative;}
     .search-input{width:100%;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.28);border-radius:50px;padding:9px 18px 9px 40px;color:#fff;font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:700;outline:none;transition:border-color .2s,background .2s;}
     .search-input::placeholder{color:rgba(255,255,255,.5);}
     .search-input:focus{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.2);}
     .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:.95rem;pointer-events:none;opacity:.7;}
  
-    /* Header actions */
     .header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
     .icon-btn{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.28);color:#fff;width:40px;height:40px;border-radius:12px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;position:relative;}
     .icon-btn:hover{background:rgba(255,255,255,.28);}
     .cart-badge{position:absolute;top:-6px;right:-6px;background:var(--pink);color:#fff;font-size:.62rem;font-weight:900;min-width:19px;height:19px;border-radius:50px;display:flex;align-items:center;justify-content:center;border:2px solid #4e1a8a;font-family:'Fredoka One',cursive;}
  
-    /* Category nav pills */
     .header-nav{display:flex;gap:6px;padding:0 24px 12px;overflow-x:auto;scrollbar-width:none;}
     .header-nav::-webkit-scrollbar{display:none;}
     .cat-pill{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.82);padding:5px 16px;border-radius:50px;font-weight:800;font-size:.78rem;cursor:pointer;white-space:nowrap;transition:all .18s;font-family:'Nunito',sans-serif;letter-spacing:.3px;}
@@ -55,7 +52,6 @@
     .stat-num{font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--yellow);text-shadow:2px 2px 0 rgba(0,0,0,.15);}
     .stat-label{font-size:.7rem;font-weight:800;color:rgba(255,255,255,.62);letter-spacing:.5px;text-transform:uppercase;}
  
-    /* Promo cards */
     .hero-right{display:flex;flex-direction:column;gap:12px;flex-shrink:0;}
     .promo-card{background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.28);border-radius:20px;padding:16px 20px;backdrop-filter:blur(10px);min-width:175px;}
     .promo-emoji{font-size:1.8rem;}
@@ -118,7 +114,6 @@
     .sidebar-nav li a:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.22);color:var(--yellow);}
     .sidebar-divider{height:1px;background:rgba(255,255,255,.14);margin:8px 0;}
  
-    /* Cart inside sidebar */
     .cart-panel{margin-top:18px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:16px;padding:14px;}
     .cart-panel-title{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff;margin-bottom:12px;}
     .cart-item-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.8rem;gap:8px;}
@@ -130,7 +125,7 @@
     .wa-checkout{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25d366,#128c4e);color:#fff;border:2px solid rgba(255,255,255,.32);padding:11px 0;border-radius:14px;font-family:'Fredoka One',cursive;font-size:.92rem;cursor:pointer;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,.38);transition:transform .15s;margin-top:12px;width:100%;}
     .wa-checkout:hover{transform:translateY(-2px);}
  
-    /* ── MODAL PRODUCTO ── */
+    /* ── MODAL ── */
     .modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(20,5,45,.78);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:20px;}
     .modal-overlay.active{opacity:1;pointer-events:all;}
     .modal{background:linear-gradient(145deg,#3d1270,#5a1a9a);border:2px solid rgba(255,255,255,.28);border-radius:26px;overflow:hidden;max-width:480px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:modalPop .34s cubic-bezier(.34,1.56,.64,1);max-height:90vh;overflow-y:auto;position:relative;}
@@ -152,7 +147,6 @@
     footer{position:relative;z-index:1;background:rgba(30,5,70,.48);border-top:2px solid rgba(255,255,255,.13);padding:28px 24px 24px;margin-top:8px;}
     .footer-inner{max-width:1100px;margin:0 auto;}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;margin-bottom:22px;}
-    .footer-brand-col{}
     .footer-brand{font-family:'Fredoka One',cursive;font-size:1.6rem;line-height:1;}
     .footer-brand .fb-glam{color:var(--pink-light);}
     .footer-brand .fb-brat{color:var(--blue-bright);}
@@ -167,13 +161,11 @@
     .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;text-align:center;font-size:.78rem;color:rgba(255,255,255,.45);font-weight:600;}
     .footer-bottom strong{color:var(--yellow);}
  
-    /* Empty state */
     .empty-state{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:56px 20px;text-align:center;gap:14px;}
     .empty-emoji{font-size:4rem;animation:sparkle 1.5s ease-in-out infinite;}
     .empty-state h2{font-family:'Fredoka One',cursive;font-size:1.7rem;color:var(--yellow);}
     .empty-state p{color:rgba(255,255,255,.75);max-width:300px;line-height:1.6;font-weight:600;}
  
-    /* Responsive */
     @media(max-width:768px){
       .hero{flex-direction:column;gap:22px;padding:28px 16px 22px;}
       .hero-right{flex-direction:row;overflow-x:auto;width:100%;}
@@ -249,7 +241,7 @@
  
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-badge">&#128156; Nueva Colección 2025 &#128156;</div>
+    <div class="hero-badge">&#128156; Nueva Colección 2026 &#128156;</div>
     <div class="hero-logo-big">
       <span class="h-glam">Glam</span>
       <span class="h-brat">Brat</span>
@@ -258,7 +250,7 @@
     <p class="hero-sub">Accesorios beauty para realzar tu mirada &#10024; Envíos a toda Colombia &#127464;&#127476;</p>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">+200</span><span class="stat-label">Clientas felices</span></div>
-      <div class="stat"><span class="stat-num">10</span><span class="stat-label">Modelos</span></div>
+      <div class="stat"><span class="stat-num">16</span><span class="stat-label">Modelos</span></div>
       <div class="stat"><span class="stat-num">24h</span><span class="stat-label">Respuesta WA</span></div>
     </div>
   </div>
@@ -368,13 +360,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      Hecho con amor por <strong>GlamBrat Co.</strong> &middot; Bogotá, Colombia &middot; 2025 &#10022;
+      Hecho con amor por <strong>GlamBrat Co.</strong> &middot; Bogotá, Colombia &middot; 2026 &#10022;
     </div>
   </div>
 </footer>
  
 <script>
-  // ── BASE DE DATOS (Sugar Pop Brown eliminada) ──
+  // ── BASE DE DATOS ACTUALIZADA CON 16 PRODUCTOS ──
   const PRODUCTOS = [
     { id:2, nombre:"Hybrid Kitten Green", categoria:"lentes", precio:35000, descripcion:"Lente de contacto verde con matices amarillos, efecto natural y vibrante. Diámetro 14.2mm, uso anual.", especificaciones:["Color: Hybrid Kitten Green","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"lente-hybrid-kitten-green.jpeg", nuevo:false, oferta:false },
     { id:3, nombre:"Millennial Spice", categoria:"lentes", precio:35000, descripcion:"Lente de contacto gris con efecto moderno y elegante. Diámetro 14.2mm, uso anual.", especificaciones:["Color: Millennial Spice","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"lente-millennial-spice.jpeg", nuevo:false, oferta:false },
@@ -385,10 +377,16 @@
     { id:8, nombre:"Verde Limón", categoria:"lentes", precio:35000, descripcion:"Lente de contacto verde limón con aro oscuro, efecto fresco y juvenil. Diámetro 14.0mm, agua 38%, uso anual.", especificaciones:["Color: Verde Limón","DIA: 14.0mm","B.C: 8.5mm","Agua: 38%","Duración: Anual"], img:"lente-verde-limon.jpeg", nuevo:false, oferta:false },
     { id:9, nombre:"Nicosia Blue", categoria:"lentes", precio:35000, descripcion:"Lente de contacto azul vibrante con degradado natural. Diámetro 14.2mm, agua 38%, uso anual.", especificaciones:["Color: Nicosia Blue","DIA: 14.2mm","B.C: 8.5mm","Agua: 38%","Duración: Anual"], img:"lente-nicosia-blue.jpeg", nuevo:false, oferta:false },
     { id:10, nombre:"Sweet Secret Blue", categoria:"lentes", precio:35000, descripcion:"Lente de contacto azul-gris con detalles amarillos, efecto natural y sofisticado. Diámetro 14.2mm, uso anual.", especificaciones:["Color: Sweet Secret Blue","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"lente-sweet-secret-blue.jpeg", nuevo:false, oferta:false },
-    { id:13, nombre:"DY-JY105 Light Blue", categoria:"lentes", precio:35000, descripcion:"Lente de contacto azul claro con aro oscuro, efecto fresco y llamativo. Diámetro 14.2mm, uso anual.", especificaciones:["Color: DY-JY105 Light Blue","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"lente-dy-jy105-light-blue.jpeg", nuevo:false, oferta:false }
+    { id:13, nombre:"DY-JY105 Light Blue", categoria:"lentes", precio:35000, descripcion:"Lente de contacto azul claro con aro oscuro, efecto fresco y llamativo. Diámetro 14.2mm, uso anual.", especificaciones:["Color: DY-JY105 Light Blue","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"lente-dy-jy105-light-blue.jpeg", nuevo:false, oferta:false },
+    /* NUEVAS REFERENCIAS ENVIADAS */
+    { id:14, nombre:"Nola Grey", categoria:"lentes", precio:35000, descripcion:"Gris cristalino con aro de definición sutil para una mirada profunda y moderna. Uso anual.", especificaciones:["Color: Nola Grey","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"75123.jpg", nuevo:true, oferta:false },
+    { id:15, nombre:"Himalaya Grey", categoria:"lentes", precio:35000, descripcion:"Tono gris frío inspirado en el hielo, ideal para una transformación radical y elegante. Uso anual.", especificaciones:["Color: Himalaya Grey","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"75124.jpg", nuevo:true, oferta:false },
+    { id:16, nombre:"Sparkling Grey", categoria:"lentes", precio:35000, descripcion:"Gris luminoso con destellos que aportan un brillo natural a tus ojos. Uso anual.", especificaciones:["Color: Sparkling Grey","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"74640.jpg", nuevo:true, oferta:false },
+    { id:17, nombre:"Russian Grey", categoria:"lentes", precio:35000, descripcion:"Clásico gris intenso con acabado premium para una mirada impactante y sofisticada. Uso anual.", especificaciones:["Color: Russian Grey","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"74641.jpg", nuevo:true, oferta:false },
+    { id:18, nombre:"Wildcat Green", categoria:"lentes", precio:35000, descripcion:"Verde exótico con texturas naturales para un efecto felino y cautivador. Uso anual.", especificaciones:["Color: Wildcat Green","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"73820.jpg", nuevo:true, oferta:false },
+    { id:19, nombre:"Misty Blue", categoria:"lentes", precio:35000, descripcion:"Azul brumoso con transiciones suaves, diseñado para un cambio fresco y natural. Uso anual.", especificaciones:["Color: Misty Blue","DIA: 14.2mm","B.C: 8.5mm","Agua: 40%","Duración: Anual"], img:"73646.jpg", nuevo:true, oferta:false }
   ];
  
-  // ── ESTADO ──
   let cart = [];
   let currentCat = "todos";
   let searchTerm = "";
@@ -403,7 +401,6 @@
     return 'https://placehold.co/400x300?text=Imagen+no+valida';
   }
  
-  // ── FILTROS Y ORDEN ──
   function getFiltered(cat) {
     let prods = PRODUCTOS.filter(p => {
       const matchCat = cat === "todos" || p.categoria === cat || (cat === "nuevos" && p.nuevo) || (cat === "ofertas" && p.oferta);
@@ -452,7 +449,6 @@
     }).join('');
   }
  
-  // ── CARRITO ──
   function getQty(id) { const i = cart.find(x => x.id === id); return i ? i.cantidad : 0; }
  
   function addToCart(id) {
@@ -504,7 +500,6 @@
     document.getElementById('waCheckoutBtn').href = `https://wa.me/573189653717?text=Hola!%20Quiero%20hacer%20un%20pedido:%0A${msg}%0ATotal:%20$${total.toLocaleString()}%20COP`;
   }
  
-  // ── RENDER PRODUCTOS ──
   function renderProducts() {
     const isTodos = currentCat === "todos";
  
@@ -529,7 +524,6 @@
     }
   }
  
-  // ── MODAL PRODUCTO ──
   function openModal(id) {
     const p = PRODUCTOS.find(x => x.id === id);
     if (!p) return;
@@ -555,7 +549,6 @@
     document.getElementById('overlay').classList.remove('active');
   }
  
-  // ── INIT ──
   document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     renderProducts();
