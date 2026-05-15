@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://glambaddie.co">
   <meta property="og:title" content="Glambaddie.co | Lentes de Contacto y Accesorios de Belleza">
   <meta property="og:description" content="Los mejores lentes de contacto y accesorios de belleza en Colombia. Envíos a todo el país. ¡Compra online!">
-  <meta property="og:image" content="https://glambaddie.co/og-glambrat.jpg">
+  <meta property="og:image" content="https://glambaddie.co/og-glambaddie.jpg">
   <meta property="og:site_name" content="Glambaddie.co">
   <meta property="og:locale" content="es_CO">
 
@@ -211,7 +211,7 @@
 
 <header>
   <div class="header-top">
-    <a href="/" class="logo" aria-label="Glambrat.co - Inicio">
+    <a href="/" class="logo" aria-label="Glambaddie.co - Inicio">
       <span class="glam">✨ GLAM</span>
       <span class="baddie">baddie</span>
       <span class="co">.co 💖</span>
@@ -235,7 +235,7 @@
 </header>
 
 <div class="sidebar-overlay" id="overlay" aria-hidden="true"></div>
-<aside class="sidebar" id="sidebar" aria-label="Menú Glambrat.co">
+<aside class="sidebar" id="sidebar" aria-label="Menú Glambaddie.co">
   <div class="sidebar-header">
     <span class="sidebar-title">✨ Glambaddie.co</span>
     <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">✕</button>
@@ -358,7 +358,7 @@
       </ul>
     </div>
     <div class="footer-links-col">
-      <h4>Glambrat.co</h4>
+      <h4>Glambaddie.co</h4>
       <ul class="footer-links">
         <li><a href="#">Sobre nosotros</a></li>
         <li><a href="#">Términos</a></li>
@@ -384,7 +384,9 @@
     { id:11, nombre:"Blackspot Blue", categoria:"lentes", precio:35000, descripcion:"Azul profundo con efecto elegante.", especificaciones:["DIA: 14.2mm","B.C: 8.5mm","Agua: 40%"], img:"blackspot-blue.jpg", nuevo:true },
     { id:12, nombre:"Mermaid Green", categoria:"lentes", precio:35000, descripcion:"Verde vibrante con degradado oscuro.", especificaciones:["DIA: 14.2mm","B.C: 8.5mm","Agua: 40%"], img:"mermaid-gree.jpg", nuevo:true }, 
     { id:13, nombre:"Pattaya Green", categoria:"lentes", precio:35000, descripcion:"Verde intenso que ilumina la mirada.", especificaciones:["DIA: 14.2mm","B.C: 8.5mm","Agua: 40%"], img:"pattaya-green.jpg", nuevo:true },
-    { id:14, nombre:"Agua Multipropósito 120ml", categoria:"accesorios", precio:16000, descripcion:"Ideal para limpiar, desinfectar y conservar tus lentes.", especificaciones:["120ml","Multipropósito","Lentes blandos"], img:"75866.jpg", nuevo:true }
+    { id:14, nombre:"Agua Multipropósito 120ml", categoria:"accesorios", precio:16000, descripcion:"Ideal para limpiar, desinfectar y conservar tus lentes.", especificaciones:["120ml","Multipropósito","Lentes blandos"], img:"75866.jpg", nuevo:true },
+    { id:15, nombre:"Pola Green", categoria:"lentes", precio:35000, descripcion:"Lente de contacto verde natural con acabado suave y luminoso. Ideal para un look fresco y vibrante.", especificaciones:["DIA: 14.2mm","B.C: 8.5mm","Agua: 40%"], img:"WhatsApp_Image_2026-05-15_at_3_47_58_PM__1_.jpeg", nuevo:true },
+    { id:16, nombre:"Mood Brown", categoria:"lentes", precio:35000, descripcion:"Lente de contacto marrón intenso con aro oscuro. Efecto profundo y natural para una mirada irresistible.", especificaciones:["DIA: 14.2mm","B.C: 8.6mm","Agua: 38%","6 meses"], img:"WhatsApp_Image_2026-05-15_at_3_47_58_PM.jpeg", nuevo:true }
   ];
 
   let cart = [];
@@ -432,7 +434,7 @@
       card.setAttribute('onclick', `openModal(${p.id})`);
       card.innerHTML = `
         <div class="card-img-wrap">
-          <img class="card-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a0835'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23ffffff80' font-size='14'%3EGlambrat.co%3C/text%3E%3C/svg%3E" data-src="${img}" alt="${p.nombre}" loading="lazy">
+          <img class="card-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a0835'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23ffffff80' font-size='14'%3EGlambaddie.co%3C/text%3E%3C/svg%3E" data-src="${img}" alt="${p.nombre}" loading="lazy">
           ${p.nuevo ? '<span class="card-badge badge-new">🎁 Nuevo</span>' : ''}
           <div class="card-fav" onclick="event.stopPropagation();this.classList.toggle('active');this.innerText=this.classList.contains('active')?'❤️':'♡'">♡</div>
         </div>
@@ -487,8 +489,8 @@
 
   function removeFromCart(id) { cart = cart.filter(x => x.id !== id); updateCartUI(); scheduleRender(); saveCart(); }
   function clearCart() { cart = []; updateCartUI(); scheduleRender(); saveCart(); }
-  function saveCart() { localStorage.setItem('glambrat_cart', JSON.stringify(cart)); }
-  function loadCart() { const s = localStorage.getItem('glambrat_cart'); if (s) { cart = JSON.parse(s); updateCartUI(); } }
+  function saveCart() { localStorage.setItem('glambaddie_cart', JSON.stringify(cart)); }
+  function loadCart() { const s = localStorage.getItem('glambaddie_cart'); if (s) { cart = JSON.parse(s); updateCartUI(); } }
 
   function updateCartUI() {
     const total = cart.reduce((s,i) => { const p = PRODUCTOS.find(x => x.id === i.id); return s + (p ? p.precio * i.cantidad : 0); }, 0);
@@ -511,7 +513,7 @@
       itemsEl.innerHTML += `<button class="cart-clear-btn" onclick="clearCart()">🗑️ Vaciar carrito</button>`;
     }
     const msg = cart.map(i => { const p = PRODUCTOS.find(x => x.id === i.id); return p ? `${p.nombre} x${i.cantidad} ($${(p.precio*i.cantidad).toLocaleString()})` : ''; }).filter(Boolean).join('%0A');
-    document.getElementById('waCheckoutBtn').href = `https://wa.me/573189653717?text=Hola%20Glambrat.co!%20Quiero%20pedir:%0A${msg}%0ATotal:%20$${total.toLocaleString()}%20COP`;
+    document.getElementById('waCheckoutBtn').href = `https://wa.me/573189653717?text=Hola%20Glambaddie.co!%20Quiero%20pedir:%0A${msg}%0ATotal:%20$${total.toLocaleString()}%20COP`;
   }
 
   function scheduleRender() {
@@ -539,7 +541,7 @@
     document.getElementById('modalDesc').innerText = p.descripcion;
     document.getElementById('modalSpecs').innerHTML = p.especificaciones.map(s => `<span class="spec-pill">${s}</span>`).join('');
     document.getElementById('modalPrice').innerHTML = '$' + p.precio.toLocaleString() + ' COP';
-    document.getElementById('modalWaBtn').href = `https://wa.me/573189653717?text=Hola%20Glambrat.co!%20Me%20interesa%20${encodeURIComponent(p.nombre)}%20($${p.precio.toLocaleString()}%20COP)`;
+    document.getElementById('modalWaBtn').href = `https://wa.me/573189653717?text=Hola%20Glambaddie.co!%20Me%20interesa%20${encodeURIComponent(p.nombre)}%20($${p.precio.toLocaleString()}%20COP)`;
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
